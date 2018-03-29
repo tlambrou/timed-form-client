@@ -1,0 +1,19 @@
+{
+  "name": "timed-form-server",
+  "version": "0.1.0",
+  "description": "Server application for Strive Talent's coding challenge timed form platform",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Tassos Lambrou",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^1.0.3",
+    "body-parser": "^1.18.2",
+    "express": "^4.16.3",
+    "pg": "^7.4.1",
+    "pg-hstore": "^2.3.2",
+    "sequelize": "^4.37.5"
+  }
+}
