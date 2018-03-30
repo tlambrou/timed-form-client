@@ -9,7 +9,7 @@ module.exports = {
         { text: "What is your answer to question 3?", formId: 10000, createdAt: new Date(), updatedAt: new Date(), id: 10002 },
         { text: "What is your answer to question 4?", formId: 10000, createdAt: new Date(), updatedAt: new Date(), id: 10003 },
         { text: "What is your answer to question 5?", formId: 10000, createdAt: new Date(), updatedAt: new Date(), id: 10004 },
-      {});
+      ], {});
     /*
       Add altering commands here.
       Return a promise to correctly handle asynchronicity.

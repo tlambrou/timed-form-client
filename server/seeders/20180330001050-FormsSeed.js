@@ -6,7 +6,7 @@ module.exports = {
 
     return queryInterface.bulkInsert('Forms', [
         { name: "Strive Talent Questions", createdAt: new Date(), updatedAt: new Date(), id: 10000 },
-      {});
+      ], {});
 
     /*
     Add altering commands here.
