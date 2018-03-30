@@ -1,17 +1,12 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router'
 
-class Input extends Component {
-
-  state = {
-    inputText: ""  }
+class QuestionInput extends Component {
 
   setInputText = (e) => {
     e.preventDefault();
-    this.setState({
-      inputText: e.target.value
-    })
+    this.props.set(e.target.value)
   }
-
 
   render() {
 
@@ -25,7 +20,7 @@ class Input extends Component {
         </label>
           <input className="form-control" name={this.props.name} type={this.props.type}
           required={this.props.required} aria-required={this.props.required}
-          onChange={this.setInputText} value={this.state.inputText}/>
+          onChange={this.setInputText} value={this.props.val}/>
           <span className="material-input"></span>
       </div>
 
@@ -33,4 +28,4 @@ class Input extends Component {
   }
 }
 
-export default Input;
+export default withRouter(QuestionInput);

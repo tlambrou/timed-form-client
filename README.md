@@ -4,7 +4,7 @@ This application is for Strive Talent's coding challenge 03/29/18.  The goal is 
 
 
 
-## Server
+## Server Application
 
 This application was built with express, sequelize, and postgresql.
 
@@ -49,16 +49,18 @@ POST `/questions/:questionId/users/:userId/answers`
 POST `/users`
 *Should create a user*
 GET `/users/:id`
-*Should get a users info*
+*Should get a users info*Us
 
-### Client Application
+## Client Application
 
 #### Components
 - UserCreate
 - Form
 - Question
 - Answer
-- Button
+- NameInput
+- QuestionInput
+- Timer
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
