@@ -2,6 +2,7 @@ const db = require('../models');
 
 module.exports = (app) => {
 
+// Answers Find or Create and return answer
 app.post('/questions/:questionId/users/:userId/answers', function(req, res, next) {
     console.log('POST Answer');
     console.log("Req.body:", req.body)

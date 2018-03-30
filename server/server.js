@@ -33,7 +33,7 @@ var checkAuth = function (req, res, next) {
 app.use(checkAuth);
 
 // **** CONTROLLERS **** //
-// require('./controllers/auth-controller.js')(app);
+require('./controllers/users-controller.js')(app);
 require('./controllers/forms-controller.js')(app);
 // require('./controllers/questions-controller.js')(app);
 require('./controllers/answers-controller.js')(app);

@@ -40,11 +40,11 @@ GET `/forms/:id`
 *Should return the form with all nest questions*
 
 ##### Answers
-POST `/questions/:questionId/users/:userId/answers/`
+POST `/questions/:questionId/users/:userId/answers`
 *Should create an answer for a given question and user*
 
 ##### User
-POST `/users/:id`
+POST `/users`
 *Should create a user*
 GET `/users/:id`
 *Should get a users info*
