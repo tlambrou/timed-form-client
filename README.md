@@ -8,6 +8,8 @@ This application is for Strive Talent's coding challenge 03/29/18.  The goal is 
 
 This application was built with express, sequelize, and postgresql.
 
+[Check out the backend repo at...](https://github.com/tlambrou/timed-form-server)
+
 ### Resources
 
 - Users
@@ -61,10 +63,11 @@ GET `/users/:id`
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 ## Issues
-Apparently Heroku is down right now.  Getting 
+- Apparently Heroku is down right now.  Getting 
 ```
 Running bash on ⬢ timed-form-server... !
  ▸    Cannot run one-off process at this time. Please try again later.
  ```
  Cannot push my app unfortunately. But you can run locally if you'd like.
  
+- Wasn't able to get to much UI unfortunately.  Another hour and I'd have  a full working app. :(

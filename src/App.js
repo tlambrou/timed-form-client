@@ -15,7 +15,7 @@ class App extends Component {
         </p>
         <div className="col-md-6 offset-md-3">
           <Input name="name" required={true} label="Your Name"/>
-          <button onClick={}type="button" class="btn btn-primary">Primary</button>
+          <button type="button" class="btn btn-primary">Submit</button>
       </div>
 
       </div>
