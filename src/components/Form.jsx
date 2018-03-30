@@ -153,7 +153,6 @@ render() {
   return (
 
     <div className="wrapper">
-      {console.log('USER', user)}
       <nav className="navbar navbar-light bg-light justify-content-end">
         <Timer user={user}/>
       </nav>

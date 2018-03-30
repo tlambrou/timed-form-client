@@ -18,15 +18,14 @@ class Question extends Component {
 
   renderPrevious() {
     if (!this.props.first) {
-      <button onClick={()=> {console.log("Prev Button Clicked!")}} type="button" className="btn btn-primary">Previous Question</button>
     }
   }
 
   renderNext() {
     if (this.props.last) {
-      return <button onClick={() => {this.props.history.push('/finished')}} type="button" className="btn btn-primary">Finish...</button>
+      return <button onClick={() => {this.props.history.push('/finished')}} type="button" className="btn btn-success">Finish...</button>
     } else {
-      return <button onClick={this.props.postAnswer} type="button" className="btn btn-primary">Next Question</button>
+      return <button onClick={this.props.postAnswer} type="button" className="btn btn-info">Next Question</button>
     }
   }
 

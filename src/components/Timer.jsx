@@ -7,15 +7,21 @@ class Timer extends Component {
   state = {
     displayTime: "- - : - - . -",
     isPast: false,
-    isWarning: false
+    isWarning: false,
+    timer: null
   }
 
   componentWillMount() {
-    this._updateTime()
+    let timerId = setInterval(() => { this.setTime() }, 500)
+    this.setState({ ...this.state, timer: timerId })
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.state.timer)
   }
 
   _updateTime() {
-    setInterval(() => { this.setTime() }, 500)
+    this.state.timer()
   }
 
   setDisplayTime(time, isPast) {

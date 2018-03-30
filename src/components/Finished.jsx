@@ -18,7 +18,7 @@ class Finished extends Component {
           <button
             onClick={()=> {this.props.history.push('/')}}
             type="button"
-            className="btn btn-primary">
+            className="btn btn-info">
             Start Over
           </button>
         </div>

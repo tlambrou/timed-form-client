@@ -12,13 +12,11 @@ class UserCreate extends Component {
   submitName() {
     axios.post(`${serverPath}/users`, this.state)
     .then((response) => {
-      console.log('RESPONSE', response)
       if (response.status === 200) {
         this.props.history.push(`/users/${response.data.user.id}/forms/10000/`)
       }
     })
     .catch((error) => {
-      console.log('ERROR', error)
     })
   }
 
@@ -45,7 +43,7 @@ class UserCreate extends Component {
           <button
             onClick={this.submitName.bind(this)}
             type="button"
-            className="btn btn-primary">
+            className="btn btn-lg btn-info">
             Begin
           </button>
         </div>
