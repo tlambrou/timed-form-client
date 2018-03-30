@@ -7,7 +7,7 @@ import QuestionInput from './QuestionInput'
 
 class Question extends Component {
 
-  renderFirst() {
+  renderGreeting() {
     const { name } = this.props.user
     if (this.props.first) {
       return (<h4 className="primary-text">Great! How about we get started {name}...</h4>)
@@ -16,16 +16,36 @@ class Question extends Component {
     }
   }
 
+  renderPrevious() {
+    if (!this.props.first) {
+      <button onClick={()=> {console.log("Prev Button Clicked!")}} type="button" className="btn btn-primary">Previous Question</button>
+    }
+  }
+
+  renderNext() {
+    if (this.props.last) {
+      return <button onClick={() => {this.props.history.push('/finished')}} type="button" className="btn btn-primary">Finish...</button>
+    } else {
+      return <button onClick={this.props.postAnswer} type="button" className="btn btn-primary">Next Question</button>
+    }
+  }
+
   render() {
-    const { user, question } = this.props
+    const { user, question, answerVal, set } = this.props
 
     return (
 
       <div>
-        {this.renderFirst()}
+        {this.renderGreeting()}
         <hr />
         <h3><strong>{question.text}</strong></h3>
-        <QuestionInput label="Answer" required={true} val="hi" />
+        <QuestionInput
+          label="Answer"
+          required={true}
+          val={answerVal}
+          set={set}
+          />
+        {this.renderNext()}
 
       </div>
 

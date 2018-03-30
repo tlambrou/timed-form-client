@@ -4,17 +4,19 @@ import axios from 'axios'
 import serverPath from '../paths'
 import { withRouter } from 'react-router-dom'
 import Question from './Question'
+import Timer from './Timer'
 
 class Form extends Component {
 
   state = {
-    user: {
-      name: "",
-      id: this.props.match.params.userId
-    },
+    user: null,
     form: null,
     activeQuestionIndex: null,
-    activeAnswer: null
+    activeAnswer: {
+      text: ""
+    },
+    alert: null,
+
   }
 
   componentWillMount() {
@@ -26,7 +28,6 @@ class Form extends Component {
     axios.get(`${serverPath}/forms/${formId}`)
     .then(response => {
       const { form } = response.data
-      console.log('FORM', form)
 
       this.setState({
         form: {
@@ -37,37 +38,41 @@ class Form extends Component {
       }, this.getUser())
     })
     .catch(error => {
-      console.log('ERROR', error)
+      this.setState({
+        ...this.state,
+        alert: error.message
+      })
     }
   )
 }
 
 getUser() {
-  console.log('GETUSER()')
 
   const { userId } = this.props.match.params
-  console.log('USERID', userId)
   axios.get(`${serverPath}/users/${userId}`)
   .then(response => {
-    console.log('RESPONSE', response)
-    const { name } = response.data
-    console.log('NAME', name)
-    this.setState({ user: {
-      name,
-      id: this.props.match.params.userId
-    }})
+    const { user } = response.data
+    this.setState({
+      ...this.state,
+      user
+    })
   })
   .catch(error => {
-    console.log('ERROR', error)
+    this.setState({
+      ...this.state,
+      alert: error.message
+    })
   })
 }
 
 setActiveAnswer(text) {
-  const { user, activeQuestionIndex } = this.state
+  const { user, activeQuestionIndex, activeAnswer } = this.state
   const { id: userId } = user
   const { id: questionId } = this.state.form.questions[activeQuestionIndex]
   this.setState({
+    ...this.state,
     activeAnswer: {
+      ...activeAnswer,
       text,
       userId,
       questionId
@@ -76,24 +81,53 @@ setActiveAnswer(text) {
 }
 
 postAnswer() {
-  const { activeAnswer } = this.state
+  const { activeAnswer, activeQuestionIndex, user } = this.state
   const { id: questionId } = this.state.form.questions[activeQuestionIndex]
+  const { id: userId } = user
 
-  axios.post(`${serverPath}/`)
+  axios.post(`${serverPath}/questions/${questionId}/users/${userId}/answers`, activeAnswer)
+  .then(response => {
+    if (response.status === 200) {
+      const newIndex = activeQuestionIndex + 1
+      this.setState({
+        ...this.state,
+        activeQuestionIndex: newIndex,
+        activeAnswer: {
+          ...activeAnswer,
+          text: ""
+        }
+      })
+    } else {
+      this.setState({
+        ...this.state,
+        alert: response.message
+      })
+    }
+  })
+  .catch(error => {
+    this.setState({
+      ...this.state,
+      alert: error.message
+    })
+  })
 }
 
 renderQuestion() {
-  const { activeQuestionIndex, form, user } = this.state
-  console.log('USER', user)
+  const { activeQuestionIndex, form, user, activeAnswer } = this.state
   if (activeQuestionIndex != null && form && user) {
     const question = form.questions[activeQuestionIndex]
+    const { text } = activeAnswer
+    const setActiveAnswer = this.setActiveAnswer.bind(this)
+    const postAnswer = this.postAnswer.bind(this)
     return (
       <Question
         question={question}
         user={user}
         first={activeQuestionIndex === 0}
         last={activeQuestionIndex === form.questions.length - 1}
-        set={this.setActiveAnswer.bind(this)}
+        set={setActiveAnswer}
+        answerVal={text}
+        postAnswer={postAnswer}
         />
     )
   } else {
@@ -101,11 +135,31 @@ renderQuestion() {
   }
 }
 
-render() {
+renderAlert() {
+  const { alert } = this.state
+  if (alert) {
+    return (
+      <div className="alert alert-warning" role="alert">
+        Whoops! Something went wrong...
+        <br/>
+        {alert}
+      </div>
+    )
+  }
+}
 
+render() {
+  const { user } = this.state
   return (
-    <div className='col-md-6 offset-md-3'>
-      {this.renderQuestion()}
+
+    <div className="wrapper">
+      {console.log('USER', user)}
+      <nav className="navbar navbar-light bg-light justify-content-end">
+        <Timer user={user}/>
+      </nav>
+      <div className='col-md-6 offset-md-3'>
+        { user ? this.renderQuestion() : `Loading` }
+      </div>
     </div>
   );
 }

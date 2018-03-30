@@ -3,6 +3,7 @@ import { Route, Redirect } from 'react-router-dom';
 import { withRouter, Switch } from 'react-router'
 import UserCreate from './UserCreate'
 import Form from './Form'
+import Finished from './Finished'
 
 class Routes extends Component {
 
@@ -10,8 +11,9 @@ class Routes extends Component {
     return (
       <div className="wrapper">
         <Switch>
-          <Route path="/" exact={true} component={UserCreate} />
+          <Route path="/" exact component={UserCreate} />
           <Route path="/users/:userId/forms/:formId" component={Form} />
+          <Route path="/finished" component={Finished} />
         </Switch>
       </div>
     );

@@ -18,7 +18,7 @@ class QuestionInput extends Component {
             {this.props.required ? "*" : ""}
           </small>
         </label>
-          <input className="form-control" name={this.props.name} type={this.props.type}
+          <textarea rows="5" className="form-control" name={this.props.name} type={this.props.type}
           required={this.props.required} aria-required={this.props.required}
           onChange={this.setInputText} value={this.props.val}/>
           <span className="material-input"></span>

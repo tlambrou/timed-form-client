@@ -24,11 +24,12 @@ class UserCreate extends Component {
 
   render() {
     return (
-      <div>
+      <div className="col-md-8 offset-md-2">
         <header className="App-header">
           <h1 className="App-title">Welcome to Timed Form App</h1>
         </header>
         <p className="App-intro">
+          Welcome.This is a timed form. You will be given the opportunity to take answer a series of questions within the alotted time.
           To get started, enter your name.
         </p>
         <div className="col-md-6 offset-md-3">
@@ -38,7 +39,15 @@ class UserCreate extends Component {
             label="Your Name"
             val={this.state.name}
             set={name => this.setState({name})} />
-          <button onClick={this.submitName.bind(this)} type="button" className="btn btn-primary">Submit</button>
+          <div className="alert alert-warning" role="alert">
+            Once you begin you will have a fixed amount of time to complete all questions
+          </div>
+          <button
+            onClick={this.submitName.bind(this)}
+            type="button"
+            className="btn btn-primary">
+            Begin
+          </button>
         </div>
       </div>
 
