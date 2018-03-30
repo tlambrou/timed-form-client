@@ -1,0 +1,7 @@
+sequelize model:create --name User --attributes name:string
+
+sequelize model:create --name Form --attributes name:string
+
+sequelize model:create --name Question --attributes text:string
+
+sequelize model:create --name Answer --attributes text:string
