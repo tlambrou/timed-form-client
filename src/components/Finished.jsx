@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import serverPath from '../paths'
-import axios from 'axios'
 
 class Finished extends Component {
 

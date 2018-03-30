@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Route, Redirect } from 'react-router-dom';
 import axios from 'axios'
 import serverPath from '../paths'
 import { withRouter } from 'react-router-dom'

@@ -1,7 +1,4 @@
 import React, { Component } from 'react';
-import { Route, Redirect } from 'react-router-dom';
-import axios from 'axios'
-import serverPath from '../paths'
 import { withRouter } from 'react-router'
 import QuestionInput from './QuestionInput'
 
@@ -30,7 +27,7 @@ class Question extends Component {
   }
 
   render() {
-    const { user, question, answerVal, set } = this.props
+    const { question, answerVal, set } = this.props
 
     return (
 

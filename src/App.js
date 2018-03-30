@@ -3,7 +3,6 @@ import { Router } from 'react-router-dom';
 import Routes from './components/Routes'
 import createHistory from 'history/createBrowserHistory';
 import './App.css';
-import UserCreate from './components/UserCreate'
 
 class App extends Component {
   render() {
