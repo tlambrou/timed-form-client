@@ -9,3 +9,5 @@ sequelize model:create --name Answer --attributes text:string
 sequelize seed:generate --name FormsSeed
 
 sequelize seed:generate --name QuestionsSeed
+
+sequelize seed:generate --name UsersSeed

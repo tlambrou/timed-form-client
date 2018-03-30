@@ -34,9 +34,9 @@ app.use(checkAuth);
 
 // **** CONTROLLERS **** //
 // require('./controllers/auth-controller.js')(app);
-// require('./controllers/form-controller.js')(app);
-// require('./controllers/question-controller.js')(app);
-// require('./controllers/answer-controller.js')(app);
+require('./controllers/forms-controller.js')(app);
+// require('./controllers/questions-controller.js')(app);
+// require('./controllers/answers-controller.js')(app);
 
 app.get('/', function(req, res) {
   res.send('Timed Form App backend up and running!');
