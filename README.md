@@ -51,4 +51,20 @@ GET `/users/:id`
 
 ### Client Application
 
+#### Components
+- UserCreate
+- Form
+- Question
+- Answer
+- Button
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
+
+## Issues
+Apparently Heroku is down right now.  Getting 
+```
+Running bash on ⬢ timed-form-server... !
+ ▸    Cannot run one-off process at this time. Please try again later.
+ ```
+ Cannot push my app unfortunately. But you can run locally if you'd like.
+ 
